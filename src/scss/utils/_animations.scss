@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Animations & Transitions
+   GSAP-compatible animation classes
+   ========================================================================== */
+
+// Fade animations
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    
+    &.is-visible {
+        animation: fadeUp 0.8s forwards;
+    }
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Scale animations
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    
+    &.is-visible {
+        animation: scaleIn 0.6s forwards;
+    }
+}
+
+@keyframes scaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// Slide animations
+.slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    
+    &.is-visible {
+        animation: slideLeft 0.8s forwards;
+    }
+}
+
+@keyframes slideLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    
+    &.is-visible {
+        animation: slideRight 0.8s forwards;
+    }
+}
+
+@keyframes slideRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// Stagger delays for lists
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+// Parallax helper
+.parallax {
+    will-change: transform;
+}
+
+// Loading spinner
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(252, 252, 252, 0.1);
+    border-top-color: var(--c-white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+// Page transition (Barba.js)
+.page-transition {
+    opacity: 0;
+    transform: translateY(20px);
+    
+    &.is-entering {
+        animation: pageEnter 0.6s forwards;
+    }
+    
+    &.is-leaving {
+        animation: pageLeave 0.4s forwards;
+    }
+}
+
+@keyframes pageEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pageLeave {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+// Voronoi transition placeholder
+.voronoi-transition {
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+}
+
+// Hover reveal effect
+.hover-reveal {
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--c-white);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    &:hover::after {
+        transform: scaleX(1);
+    }
+}

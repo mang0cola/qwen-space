@@ -1,0 +1,54 @@
+/* ==========================================================================
+   CSS Variables - Color, Typography, Spacing System
+   ========================================================================== */
+
+:root {
+    // Colors - Carefully tuned, not pure black/white
+    --c-white: #fcfcfc;
+    --c-black: #050505;
+    --c-gray-a: #8d8d8d;
+    --c-gray-b: #666666;
+    --c-gray-d: #060606;
+    
+    // Three.js color references (synced with JS)
+    --color-white-three: #{color-mix(in srgb, #fcfcfc 99%, #fff)};
+    --color-black-three: #{color-mix(in srgb, #050505 98%, #000)};
+    
+    // Typography
+    --font-felix: 'Felix', serif;
+    --font-nimbus: 'nimbus-sans', sans-serif;
+    --font-sarabun: 'Sarabun', sans-serif;
+    
+    // Font sizes (responsive via vw)
+    --fs-xxl: 20vw;      // Felix large titles
+    --fs-xl: 9vw;        // Felix medium titles
+    --fs-lg: 2.75rem;    // nimbus-sans subtitles
+    --fs-md: 1.425rem;   // nimbus-sans body
+    
+    // Spacing system - data-driven multipliers
+    --vh-unit: 1vh;
+    --vw-unit: 1vw;
+    
+    // Transitions
+    --transition-fast: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-medium: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    // Z-index layers
+    --z-noise: 1;
+    --z-site-window: 2;
+    --z-gl-canvas: 0;
+    --z-cursor: 9999;
+    --z-menu-overlay: 999;
+}
+
+// Theme states
+[data-theme="white"] {
+    --bg-primary: var(--c-white);
+    --text-primary: var(--c-black);
+}
+
+[data-theme="black"] {
+    --bg-primary: var(--c-black);
+    --text-primary: var(--c-white);
+}

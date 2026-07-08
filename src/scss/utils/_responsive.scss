@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Responsive Breakpoints & Utilities
+   Three-tier responsive system
+   ========================================================================== */
+
+// Breakpoint variables
+$bp-desktop: 1024px;
+$bp-tablet: 640px;
+
+// Visibility utilities
+.is-desktop {
+    @media (max-width: $bp-desktop) {
+        display: none !important;
+    }
+}
+
+.is-tablet {
+    @media (min-width: $bp-desktop + 1), (max-width: $bp-tablet) {
+        display: none !important;
+    }
+}
+
+.is-mobile {
+    @media (min-width: $bp-tablet + 1) {
+        display: none !important;
+    }
+}
+
+// Hide on specific devices
+.hide-desktop {
+    @media (min-width: $bp-desktop + 1) {
+        display: none !important;
+    }
+}
+
+.hide-tablet {
+    @media (min-width: $bp-tablet + 1) and (max-width: $bp-desktop) {
+        display: none !important;
+    }
+}
+
+.hide-mobile {
+    @media (max-width: $bp-tablet) {
+        display: none !important;
+    }
+}
+
+// Text alignment responsive
+.text-center-mobile {
+    @media (max-width: $bp-tablet) {
+        text-align: center;
+    }
+}
+
+// Container max-width
+.container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 50px;
+    
+    @media (max-width: $bp-desktop) {
+        padding: 0 30px;
+    }
+    
+    @media (max-width: $bp-tablet) {
+        padding: 0 20px;
+    }
+}
+
+// Full viewport height fix (mobile Safari)
+.vh-fix {
+    height: 100vh;
+    height: -webkit-fill-available;
+}
+
+// Prevent horizontal scroll
+.no-overflow-x {
+    overflow-x: hidden;
+}
+
+// Smooth scroll behavior
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+// Large screen font locking
+@media (min-width: 1800px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1580px) {
+    html {
+        font-size: 15px;
+    }
+}
