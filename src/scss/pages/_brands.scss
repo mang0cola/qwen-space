@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Brands Slider Section
+   Three-column layout with Voronoi transition
+   ========================================================================== */
+
+.brands-section {
+    position: relative;
+    padding: 100px 50px;
+    overflow: hidden;
+    
+    @media (max-width: 1024px) {
+        padding: 60px 30px;
+    }
+}
+
+.brands-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+// Brand navigation (left column)
+.brand-nav {
+    ul {
+        li {
+            margin-bottom: 20px;
+            
+            button {
+                font-family: var(--font-nimbus);
+                font-size: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                opacity: 0.4;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                background: none;
+                border: none;
+                color: inherit;
+                text-align: left;
+                
+                &:hover,
+                &.active {
+                    opacity: 1;
+                }
+                
+                &.active {
+                    position: relative;
+                    
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -8px;
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background-color: var(--c-white);
+                        transform: scaleX(0);
+                        animation: lineExpand 0.5s forwards;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes lineExpand {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+// Brand image display (center column)
+.brand-display {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    
+    @media (max-width: 1024px) {
+        height: 400px;
+        order: -1;
+    }
+}
+
+.brand-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    
+    &.active {
+        opacity: 1;
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// WebGL canvas for Voronoi transitions
+#brands-webgl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+// Brand description (right column)
+.brand-desc {
+    font-family: var(--font-nimbus);
+    font-size: var(--fs-md);
+    line-height: 1.8;
+    
+    h3 {
+        font-family: var(--font-felix);
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    p {
+        margin-bottom: 20px;
+        opacity: 0.8;
+    }
+}
+
+// Dotted indicator
+.js-dotted {
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -20px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--c-white);
+        opacity: 0;
+        transform: translateY(-50%);
+        transition: opacity 0.3s ease;
+    }
+    
+    &.active::before {
+        opacity: 1;
+    }
+}

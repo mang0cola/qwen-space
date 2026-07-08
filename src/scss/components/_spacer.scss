@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Data-Driven Spacing System
+   Based on viewport units with multipliers
+   ========================================================================== */
+
+// Desktop: 5vh multiplier
+.spr {
+    width: 100%;
+    height: calc(5vh * var(--n, 1));
+    
+    &[data-n="1"] { height: 5vh; }
+    &[data-n="1.5"] { height: 7.5vh; }
+    &[data-n="2"] { height: 10vh; }
+    &[data-n="2.5"] { height: 12.5vh; }
+    &[data-n="3"] { height: 15vh; }
+    &[data-n="3.5"] { height: 17.5vh; }
+    &[data-n="4"] { height: 20vh; }
+    &[data-n="4.5"] { height: 22.5vh; }
+    &[data-n="5"] { height: 25vh; }
+}
+
+// Compact spacing: 6vh multiplier
+.spr-s {
+    width: 100%;
+    height: calc(6vh * var(--n, 1));
+    
+    &[data-n="1"] { height: 6vh; }
+    &[data-n="1.5"] { height: 9vh; }
+    &[data-n="2"] { height: 12vh; }
+    &[data-n="2.5"] { height: 15vh; }
+    &[data-n="3"] { height: 18vh; }
+    &[data-n="3.5"] { height: 21vh; }
+    &[data-n="4"] { height: 24vh; }
+}
+
+// Tablet: 10vw multiplier
+@media (max-width: 1024px) {
+    .spr {
+        height: calc(10vw * var(--t, var(--n, 1)));
+    }
+    
+    .spr-s {
+        height: calc(10vw * var(--t, var(--n, 1)));
+    }
+}
+
+// Mobile: 15vw multiplier
+@media (max-width: 640px) {
+    .spr {
+        height: calc(15vw * var(--m, var(--t, var(--n, 1))));
+    }
+    
+    .spr-s {
+        height: calc(15vw * var(--m, var(--t, var(--n, 1))));
+    }
+}
+
+// Section padding utility
+.section-pad {
+    padding-top: calc(5vh * var(--pt, 2));
+    padding-bottom: calc(5vh * var(--pb, 2));
+    
+    @media (max-width: 1024px) {
+        padding-top: calc(10vw * var(--pt-t, var(--pt, 2)));
+        padding-bottom: calc(10vw * var(--pb-t, var(--pb, 2)));
+    }
+    
+    @media (max-width: 640px) {
+        padding-top: calc(15vw * var(--pt-m, var(--pt-t, var(--pt, 2))));
+        padding-bottom: calc(15vw * var(--pb-m, var(--pb-t, var(--pb, 2))));
+    }
+}

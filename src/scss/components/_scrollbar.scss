@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Custom Scrollbar - GSAP-driven
+   ========================================================================== */
+
+.site-scroll-nav {
+    position: fixed;
+    top: 0;
+    right: 30px;
+    width: 2px;
+    height: 100vh;
+    z-index: 999;
+    
+    @media (max-width: 1024px) {
+        right: 15px;
+        width: 1px;
+    }
+}
+
+.site-scroll-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(141, 141, 141, 0.3); // --c-gray-a with opacity
+}
+
+.site-scroll-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--c-white);
+    transform-origin: top;
+    cursor: grab;
+    
+    &:active {
+        cursor: grabbing;
+    }
+}
+
+// Hide native scrollbar
+body {
+    scrollbar-width: none; // Firefox
+    
+    &::-webkit-scrollbar {
+        display: none; // Chrome/Safari
+    }
+}
+
+// Scroll progress indicator (optional)
+.scroll-progress {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: var(--c-white);
+    transform-origin: left;
+    transform: scaleX(0);
+    z-index: 998;
+}

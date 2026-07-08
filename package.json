@@ -1,0 +1,30 @@
+{
+  "name": "stone-style",
+  "version": "2.0.1",
+  "description": "Stone & Style - Luxury Stone Curator Platform",
+  "author": "Stone & Style",
+  "license": "proprietary",
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "clean": "rm -rf dist/*"
+  },
+  "dependencies": {
+    "three": "^0.132.0",
+    "gsap": "^3.9.0",
+    "barba.js": "^2.9.7",
+    "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.2.0",
+    "sass": "^1.38.0",
+    "sass-loader": "^12.1.0",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.8.0",
+    "glsl-loader": "^0.0.1"
+  }
+}
